@@ -20,10 +20,33 @@
     <!-- Заголовок -->
     <h1>Обратная связь</h1>
     <!-- Заголовок -->
+
     <!-- Область основного контента -->
+    <?php
+
+    $size = ini_get('post_max_size');
+
+    $unit = strtolower(substr($size, -1));
+
+    $size = (int)$size;
+
+    switch ($unit) {
+      case 'g':
+        $size *= 1024;
+      case 'm':
+        $size *= 1024;
+      case 'k':
+        $size *= 1024;
+        break;
+    }
+
+    ?>
+
     <h3>Адрес</h3>
     <p>123456 Москва, Малый Американский переулок 21</p>
+
     <h3>Задайте вопрос</h3>
+
     <form action='' method='post'>
       <label>Тема письма: </label>
       <br />
@@ -36,30 +59,33 @@
       <br />
       <input type='submit' value='Отправить' />
     </form>
+
+    <p>Максимальный размер отправляемых данных <?= $size ?> байт.</p>
+
     <!-- Область основного контента -->
   </div>
+
   <div id="nav">
     <h2>Навигация по сайту</h2>
+
     <!-- Меню -->
     <ul>
-      <li><a href='index.php'>Домой</a>
-      </li>
-      <li><a href='about.php'>О нас</a>
-      </li>
-      <li><a href='contact.php'>Контакты</a>
-      </li>
-      <li><a href='table.php'>Таблица умножения</a>
-      </li>
-      <li><a href='calc.php'>Калькулятор</a>
-      </li>
+      <li><a href='index.php'>Домой</a></li>
+      <li><a href='about.php'>О нас</a></li>
+      <li><a href='contact.php'>Контакты</a></li>
+      <li><a href='table.php'>Таблица умножения</a></li>
+      <li><a href='calc.php'>Калькулятор</a></li>
     </ul>
     <!-- Меню -->
+
   </div>
+
   <div id="footer">
     <!-- Нижняя часть страницы -->
-    &copy; Супер Мега Веб-мастер, 2000 &ndash; 2021
+    &copy; Супер Мега Веб-мастер, 2000 &ndash; 2026
     <!-- Нижняя часть страницы -->
   </div>
+
 </body>
 
 </html>
